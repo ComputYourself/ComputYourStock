@@ -7,7 +7,7 @@ package DataBase;
 
 /**
  *
- * @author comput
+ * @author Anadidathorion
  */
 public class Can extends Product {
     
@@ -15,8 +15,8 @@ public class Can extends Product {
         super(name, code);
     }
     
-    public Can(String name, String code, float purchasePrice, float sellingPrice) {
-        super(name, code, purchasePrice, sellingPrice, ProductType.CAN);
+    public Can(String name, String code, float purchasePrice, float sellingPrice, int quantity) {
+        super(name, code, purchasePrice, sellingPrice, ProductType.CAN, quantity);
     }
 
 }

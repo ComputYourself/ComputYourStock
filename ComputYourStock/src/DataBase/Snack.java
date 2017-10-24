@@ -7,7 +7,7 @@ package DataBase;
 
 /**
  *
- * @author comput
+ * @author Anadidathorion
  */
 public class Snack extends Product {
     
@@ -15,7 +15,7 @@ public class Snack extends Product {
         super(name, code);
     }
     
-    public Snack(String name, String code, float purchasePrice, float sellingPrice) {
-        super(name, code, purchasePrice, sellingPrice, ProductType.SNACK);
+    public Snack(String name, String code, float purchasePrice, float sellingPrice, int quantity) {
+        super(name, code, purchasePrice, sellingPrice, ProductType.SNACK, quantity);
     }
 }

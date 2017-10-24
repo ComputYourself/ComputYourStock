@@ -8,7 +8,7 @@ package DataBase;
 
 /**
  *
- * @author comput
+ * @author Anadidathorion
  */
 public abstract class Product {
     protected String name;
@@ -18,18 +18,21 @@ public abstract class Product {
     protected float sellingPrice;
     
     protected ProductType type;
+    
+    protected int quantity;
 
     public Product(String name, String code) {
         this.name = name;
         this.code = code;
     }
 
-    public Product(String name, String code, float purchasePrice, float sellingPrice, ProductType type) {
+    public Product(String name, String code, float purchasePrice, float sellingPrice, ProductType type, int quantity) {
         this.name = name;
         this.code = code;
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
         this.type = type;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -70,6 +73,14 @@ public abstract class Product {
 
     public void setType(ProductType type) {
         this.type = type;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
     

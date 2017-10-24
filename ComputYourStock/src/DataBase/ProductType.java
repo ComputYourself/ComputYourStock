@@ -7,7 +7,7 @@ package DataBase;
 
 /**
  *
- * @author comput
+ * @author Anadidathorion
  */
 public enum ProductType {
     CAN,

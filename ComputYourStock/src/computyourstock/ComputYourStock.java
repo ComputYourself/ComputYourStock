@@ -15,7 +15,14 @@ public class ComputYourStock {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        launchDB();        
+                
+        MainMenu mn = new MainMenu();
+        mn.setVisible(true);
+    }
+    
+    private static void launchDB() {
+        
     }
     
 }
