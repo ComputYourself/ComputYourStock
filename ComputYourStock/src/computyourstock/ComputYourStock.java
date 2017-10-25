@@ -5,6 +5,9 @@
  */
 package computyourstock;
 
+import dataBase.MemberManager;
+import dataBase.StockManager;
+
 /**
  *
  * @author comput
@@ -16,13 +19,16 @@ public class ComputYourStock {
      */
     public static void main(String[] args) {
         launchDB();        
-                
-        MainMenu mn = new MainMenu();
-        mn.setVisible(true);
+        launchUI();
     }
     
     private static void launchDB() {
-        
+        StockManager.init();
+        MemberManager.init();
     }
     
+    private static void launchUI() {
+        MainMenu mn = new MainMenu();
+        mn.setVisible(true);
+    }
 }

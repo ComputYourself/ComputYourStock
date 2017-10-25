@@ -5,6 +5,7 @@
  */
 package computyourstock;
 
+import model.MemberTableRenderer;
 import model.QuantityCellRenderer;
 import model.StockTableModel;
 
@@ -31,15 +32,21 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        tabMenu = new javax.swing.JTabbedPane();
         StockPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        addButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        addProductButton = new javax.swing.JButton();
+        MemberPanel = new javax.swing.JPanel();
+        researchLabel = new javax.swing.JLabel();
+        researchTextField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        addPersonButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         java.awt.GridBagLayout StockPanelLayout = new java.awt.GridBagLayout();
         StockPanelLayout.columnWidths = new int[] {0};
@@ -59,32 +66,72 @@ public class MainMenu extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         StockPanel.add(jScrollPane1, gridBagConstraints);
 
-        addButton.setText("Ajouter Produit");
+        addProductButton.setText("Ajouter Produit");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        StockPanel.add(addButton, gridBagConstraints);
+        StockPanel.add(addProductButton, gridBagConstraints);
 
-        jTabbedPane2.addTab("Stock", StockPanel);
+        tabMenu.addTab("Stock", StockPanel);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
-        );
+        java.awt.GridBagLayout MemberPanelLayout = new java.awt.GridBagLayout();
+        MemberPanelLayout.columnWidths = new int[] {0, 5, 0};
+        MemberPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        MemberPanel.setLayout(MemberPanelLayout);
 
-        jTabbedPane2.addTab("tab2", jPanel4);
+        researchLabel.setText("Rechercher :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        MemberPanel.add(researchLabel, gridBagConstraints);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        researchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                researchTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        MemberPanel.add(researchTextField, gridBagConstraints);
+
+        jTable2.setModel(new MemberTableRenderer());
+        jScrollPane2.setViewportView(jTable2);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        MemberPanel.add(jScrollPane2, gridBagConstraints);
+
+        addPersonButton.setText("Ajouter Personne");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        MemberPanel.add(addPersonButton, gridBagConstraints);
+
+        tabMenu.addTab("Membre", MemberPanel);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(tabMenu, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void researchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_researchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_researchTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,11 +169,16 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MemberPanel;
     private javax.swing.JPanel StockPanel;
-    private javax.swing.JButton addButton;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton addPersonButton;
+    private javax.swing.JButton addProductButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel researchLabel;
+    private javax.swing.JTextField researchTextField;
+    private javax.swing.JTabbedPane tabMenu;
     // End of variables declaration//GEN-END:variables
 }
