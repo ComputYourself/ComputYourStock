@@ -7,21 +7,23 @@ package dataBase;
 
 import dataBase.object.Member;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Anadidathorion
  */
 public class MemberManager {
-    private static List<Member> members;
+    private static Map<String, Member> members;
     
     private MemberManager() {
         
     }
     
     public static void init() {
-        members = new ArrayList<>();
+        members = new HashMap<>();
         populate();
         // Find objects in DB
     }
@@ -31,14 +33,18 @@ public class MemberManager {
     }
     
     public static List<Member> getMember() {
-        return members;
+        return new ArrayList<Member>( members.values());
     }
     
     private static void populate() {
-        members.add(new Member("Valérian", "Perez", "Anih", "a@a.com", "0123456789", "plop"));
-        members.add(new Member("Fabien", "Perot", "Présicarré", "a@a.com", "0123456789", "plop"));
-        members.add(new Member("Léa", "Perronet", "Loge", "a@a.com", "0123456789", "plop"));
-        members.add(new Member("Lucas", "plop", "Anih", "a@a.com", "0123456789", "plop"));
-        members.add(new Member("Owen", "Plop", "Anih", "a@a.com", "0123456789", "plop"));
+        Member tmp = new Member("Valérian", "Perez", "Anih","000001", "a@a.com", "0123456789", "plop");
+        members.put(tmp.getCode(), tmp);
+        tmp = new Member("Fabien", "Perot", "Présicarré","000002", "a@a.com", "0123456789", "plop");
+        members.put(tmp.getCode(), tmp);
+        tmp = new Member("Léa", "Perronet", "Loge","000003", "a@a.com", "0123456789", "plop");
+        members.put(tmp.getCode(), tmp);
+        tmp = new Member("Lucas", "plop", "Acul","000004", "a@a.com", "0123456789", "plop");
+        members.put(tmp.getCode(), tmp);
+        tmp = new Member("Owen", "Plop", "Owen","000005", "a@a.com", "0123456789", "plop");
     }
 }

@@ -9,21 +9,23 @@ import dataBase.object.Can;
 import dataBase.object.Product;
 import dataBase.object.Snack;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Anadidathorion
  */
 public final class StockManager {
-    private static List<Product> products;
+    private static Map<String, Product> products;
     
     private StockManager() {
         
     }
     
     public static void init() {
-        products = new ArrayList<>();
+        products = new HashMap<>();
         populate();
         // Find objects in DB
     }
@@ -33,15 +35,19 @@ public final class StockManager {
     }
     
     public static List<Product> getStock() {
-        return products;
+        return new ArrayList<Product>( products.values());
     }
     
     private static void populate() {
-        products.add(new Can("Coca", "00001", 0.3f, 0.6f, 20));
-        products.add(new Can("Mojito", "00002", 0.3f, 0.6f, 0));
-        products.add(new Can("Sprite", "00003", 0.3f, 0.6f, 4));
-        
-        products.add(new Snack("Twix", "00004", 0.3f, 0.5f, 20));
-        products.add(new Snack("Mars", "00005", 0.3f, 0.5f, 20));
+        Product tmp = new Can("Coca", "00001", 0.3f, 0.6f, 20);
+        products.put(tmp.getCode(), tmp);
+        tmp = new Can("Mojito", "00002", 0.3f, 0.6f, 0);
+        products.put(tmp.getCode(), tmp);
+        tmp = new Can("Sprite", "00004", 0.3f, 0.6f, 4);
+        products.put(tmp.getCode(), tmp);
+        tmp = new Snack("Twix", "00003", 0.3f, 0.5f, 20);
+        products.put(tmp.getCode(), tmp);
+        tmp = new Snack("Mars", "00005", 0.3f, 0.5f, 20);
+        products.put(tmp.getCode(), tmp);
     }
 }

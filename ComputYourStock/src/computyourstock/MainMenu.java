@@ -33,6 +33,24 @@ public class MainMenu extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         tabMenu = new javax.swing.JTabbedPane();
+        purchasePanel = new javax.swing.JPanel();
+        searchMemberPanel = new javax.swing.JPanel();
+        memberCodeLabel = new javax.swing.JLabel();
+        memberCodeTextField = new javax.swing.JTextField();
+        searchMemberButton = new javax.swing.JButton();
+        firstnameLabel = new javax.swing.JLabel();
+        firstnameTextField = new javax.swing.JTextField();
+        surenameLabel = new javax.swing.JLabel();
+        surenameTextField = new javax.swing.JTextField();
+        pseudoLabel = new javax.swing.JLabel();
+        pseudoTextField = new javax.swing.JTextField();
+        cashAmountLabel = new javax.swing.JLabel();
+        cashAmountTextField = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        detailedPurchasePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         StockPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -47,6 +65,132 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        java.awt.GridBagLayout purchasePanelLayout = new java.awt.GridBagLayout();
+        purchasePanelLayout.columnWidths = new int[] {0};
+        purchasePanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        purchasePanel.setLayout(purchasePanelLayout);
+
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        searchMemberPanel.setLayout(jPanel1Layout);
+
+        memberCodeLabel.setText("Membre :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        searchMemberPanel.add(memberCodeLabel, gridBagConstraints);
+
+        memberCodeTextField.setColumns(12);
+        memberCodeTextField.setMinimumSize(new java.awt.Dimension(200, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        searchMemberPanel.add(memberCodeTextField, gridBagConstraints);
+
+        searchMemberButton.setText("Rechercher");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 2;
+        searchMemberPanel.add(searchMemberButton, gridBagConstraints);
+
+        firstnameLabel.setText("Nom :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        searchMemberPanel.add(firstnameLabel, gridBagConstraints);
+
+        firstnameTextField.setEditable(false);
+        firstnameTextField.setColumns(12);
+        firstnameTextField.setMinimumSize(new java.awt.Dimension(200, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        searchMemberPanel.add(firstnameTextField, gridBagConstraints);
+
+        surenameLabel.setText("Prénom :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 6;
+        searchMemberPanel.add(surenameLabel, gridBagConstraints);
+
+        surenameTextField.setEditable(false);
+        surenameTextField.setColumns(12);
+        surenameTextField.setMinimumSize(new java.awt.Dimension(200, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        searchMemberPanel.add(surenameTextField, gridBagConstraints);
+
+        pseudoLabel.setText("Pseudo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        searchMemberPanel.add(pseudoLabel, gridBagConstraints);
+
+        pseudoTextField.setEditable(false);
+        pseudoTextField.setColumns(12);
+        pseudoTextField.setMinimumSize(new java.awt.Dimension(200, 24));
+        pseudoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pseudoTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        searchMemberPanel.add(pseudoTextField, gridBagConstraints);
+
+        cashAmountLabel.setText("Crédit :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 10;
+        searchMemberPanel.add(cashAmountLabel, gridBagConstraints);
+
+        cashAmountTextField.setEditable(false);
+        cashAmountTextField.setColumns(12);
+        cashAmountTextField.setMinimumSize(new java.awt.Dimension(200, 24));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        searchMemberPanel.add(cashAmountTextField, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        purchasePanel.add(searchMemberPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        purchasePanel.add(jSeparator1, gridBagConstraints);
+
+        detailedPurchasePanel.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setText("Liste Achat :");
+        detailedPurchasePanel.add(jLabel1, new java.awt.GridBagConstraints());
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList1);
+
+        detailedPurchasePanel.add(jScrollPane3, new java.awt.GridBagConstraints());
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        purchasePanel.add(detailedPurchasePanel, gridBagConstraints);
+
+        tabMenu.addTab("Achat", purchasePanel);
 
         java.awt.GridBagLayout StockPanelLayout = new java.awt.GridBagLayout();
         StockPanelLayout.columnWidths = new int[] {0};
@@ -133,6 +277,10 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_researchTextFieldActionPerformed
 
+    private void pseudoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pseudoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pseudoTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -173,12 +321,30 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel StockPanel;
     private javax.swing.JButton addPersonButton;
     private javax.swing.JButton addProductButton;
+    private javax.swing.JLabel cashAmountLabel;
+    private javax.swing.JTextField cashAmountTextField;
+    private javax.swing.JPanel detailedPurchasePanel;
+    private javax.swing.JLabel firstnameLabel;
+    private javax.swing.JTextField firstnameTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel memberCodeLabel;
+    private javax.swing.JTextField memberCodeTextField;
+    private javax.swing.JLabel pseudoLabel;
+    private javax.swing.JTextField pseudoTextField;
+    private javax.swing.JPanel purchasePanel;
     private javax.swing.JLabel researchLabel;
     private javax.swing.JTextField researchTextField;
+    private javax.swing.JButton searchMemberButton;
+    private javax.swing.JPanel searchMemberPanel;
+    private javax.swing.JLabel surenameLabel;
+    private javax.swing.JTextField surenameTextField;
     private javax.swing.JTabbedPane tabMenu;
     // End of variables declaration//GEN-END:variables
 }
